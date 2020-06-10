@@ -227,11 +227,11 @@
     },
     {
       "id": "3f6j8g3pgkb2j1jgx",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g5v4kb2j3l4g",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g1j4kb2j4eo6",
@@ -390,6 +390,16 @@
       "name": "Наличные",
       "user_id": "3f6j8g2xgkb2izsck",
       "id": "3f6j8g1jokb7kj7az"
+    },
+    {
+      "name": "Наличные",
+      "user_id": "3f6j8g3pgkb2j1jgx",
+      "id": "3f6j8g3jokb914z5v"
+    },
+    {
+      "name": "Сбербанк",
+      "user_id": "3f6j8g3pgkb2j1jgx",
+      "id": "3f6j8g1xskb91561y"
     }
   ],
   "transactions": [
@@ -647,6 +657,78 @@
       "sum": 10000,
       "account_id": "3f6j8g4gckb6qpetw",
       "created_at": "2020-06-08T16:59:22.294Z"
+    },
+    {
+      "id": "3f6j8gjgkb8zehu8",
+      "type": "INCOME",
+      "name": "Заначка",
+      "sum": 10000,
+      "account_id": "3f6j8g20wkb8z4u5p",
+      "created_at": "2020-06-10T06:37:59.887Z"
+    },
+    {
+      "id": "3f6j8g30skb8zeulc",
+      "type": "INCOME",
+      "name": "Вклад",
+      "sum": 150000,
+      "account_id": "3f6j8g3pokb8zcvke",
+      "created_at": "2020-06-10T06:38:16.415Z"
+    },
+    {
+      "id": "3f6j8g1r8kb8zf7ek",
+      "type": "INCOME",
+      "name": "Зарплата",
+      "sum": 30000,
+      "account_id": "3f6j8g3pokb8zcvke",
+      "created_at": "2020-06-10T06:38:33.019Z"
+    },
+    {
+      "id": "3f6j8g5qkkb90jxgn",
+      "type": "INCOME",
+      "name": "Зарплата",
+      "sum": 20000,
+      "account_id": "3f6j8gzkkb90jm28",
+      "created_at": "2020-06-10T07:10:13.030Z"
+    },
+    {
+      "id": "3f6j8g2n0kb90k683",
+      "type": "INCOME",
+      "name": "Заначка",
+      "sum": 5000,
+      "account_id": "3f6j8g4fkkb90jel0",
+      "created_at": "2020-06-10T07:10:24.386Z"
+    },
+    {
+      "id": "3f6j8g3ookb9114z0",
+      "type": "INCOME",
+      "name": "Зарплата",
+      "sum": 10000,
+      "account_id": "3f6j8glkkb910wul",
+      "created_at": "2020-06-10T07:23:35.915Z"
+    },
+    {
+      "id": "3f6j8giokb91257d",
+      "type": "INCOME",
+      "name": "Зарплата",
+      "sum": 1500,
+      "account_id": "3f6j8g5ugkb911wxo",
+      "created_at": "2020-06-10T07:24:22.872Z"
+    },
+    {
+      "id": "3f6j8g2xokb915ep4",
+      "type": "INCOME",
+      "name": "Наличные",
+      "sum": 100000,
+      "account_id": "3f6j8g3jokb914z5v",
+      "created_at": "2020-06-10T07:26:55.143Z"
+    },
+    {
+      "id": "3f6j8g2tgkb915p40",
+      "type": "INCOME",
+      "name": "Заначка",
+      "sum": 1500,
+      "account_id": "3f6j8g1xskb91561y",
+      "created_at": "2020-06-10T07:27:08.639Z"
     }
   ]
 }

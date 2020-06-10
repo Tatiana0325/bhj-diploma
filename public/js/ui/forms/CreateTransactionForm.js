@@ -21,6 +21,20 @@ class CreateTransactionForm extends AsyncForm {
     let selectIncome = document.getElementById('income-accounts-list');
     let selectExpense = document.getElementById('expense-accounts-list');
 
+    let lastSelectIncome = selectIncome.querySelectorAll('option');
+    if(lastSelectIncome != null) {
+      for (let i = 0; i < lastSelectIncome.length; i++) {
+        lastSelectIncome[i].remove();
+      }
+    };
+
+    let lastSelectExpense = selectExpense.querySelectorAll('option');
+    if(lastSelectExpense != null) {
+      for (let i = 0; i < lastSelectExpense.length; i++) {
+        lastSelectExpense[i].remove();
+      }
+    }
+
     function selectHTML(id, name) {
       let optionElement = document.createElement('option');
         optionElement.setAttribute('value', `${id}`);

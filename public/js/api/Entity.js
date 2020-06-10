@@ -20,13 +20,13 @@ class Entity {
       data: data,
       responseType: 'json',
       method: 'GET',
-      callback: (err, response) => {
+      callback: callback/*(err, response) => {
         try {
           callback(null, response);
         } catch {
           callback(err, null);
         }
-      }
+      }*/
     })
   }
 
@@ -45,13 +45,7 @@ class Entity {
       data: modifiedData,
       responseType: 'json',
       method: 'POST',
-      callback: (err, response) => {
-        try {
-          callback(null, response);
-        } catch {
-          callback(err, null);
-        }
-      }
+      callback: callback
     })
   }
 
@@ -67,13 +61,7 @@ class Entity {
       data: data,
       responseType: 'json',
       method: 'GET',
-      callback: (err, response) => {
-        try {
-          callback(null, response);
-        } catch {
-          callback(err, null);
-        }
-      }
+      callback: callback
     })
   }
 
@@ -92,13 +80,7 @@ class Entity {
       data: modifiedData2,
       responseType: 'json',
       method: 'POST',
-      callback: (err, response) => {
-        try {
-          callback(null, response);
-        } catch {
-          callback(err, null);
-        }
-      }
+      callback: callback
     })
   }
 }

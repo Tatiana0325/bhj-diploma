@@ -25,7 +25,7 @@ class TransactionsPage {
    * Вызывает метод render для отрисовки страницы
    * */
   update() {
-    this.render();
+    this.render(this.lastOptions);
   }
 
   /**
@@ -40,18 +40,22 @@ class TransactionsPage {
     removeAccount.addEventListener('click', (e) => {
       e.preventDefault();
       this.removeAccount();
-      const accountTitle = document.querySelector('.content-title');
-      accountTitle.textContent = 'Название счета';
-
-      const removeTransaction = document.querySelectorAll('.transaction__remove');
-    
-      for (let i = 0; i < removeTransaction.length; i++) {
-        removeTransaction[i].addEventListener('click', (e) => {
-          e.preventDefault();
-          this.removeTransaction(removeTransaction[i].getAttribute('data-id'));
-        })
-      }
+      this.clear();
     });
+    
+    const sectionTransaction = document.querySelector('.content');
+
+    sectionTransaction.addEventListener('click', () => {
+      const transaction = document.querySelectorAll('.transaction__remove');
+    
+      for (let i = 0; i < transaction.length; i++) {
+        transaction[i].addEventListener('click', (e) => {
+          e.preventDefault();
+          this.removeTransaction(transaction[i].getAttribute('data-id'));
+          transaction[i].closest('.transaction').remove();
+        })  
+      }
+    })  
   }
 
   /**
@@ -70,7 +74,10 @@ class TransactionsPage {
           if(response.success) {
             App.update();
           }
-        } ) 
+        })
+
+        document.getElementById('income-accounts-list').querySelector(`option[value="${this.lastOptions.account_id}"]`).remove();
+        document.getElementById('expense-accounts-list').querySelector(`option[value="${this.lastOptions.account_id}"]`).remove(); 
       } else {
         return false;
       }
@@ -85,7 +92,7 @@ class TransactionsPage {
     let result = confirm('Вы действительно хотите удалить эту транзакцию?');
 
     if(result) {
-      Account.remove(id, '', (err, response) => {
+      Transaction.remove(id, '', (err, response) => {
         if(response.success) {
           App.update();
         }
@@ -103,18 +110,24 @@ class TransactionsPage {
    * */
   render( options ) {
     if (options != undefined) {
+      this.clear();
       this.lastOptions = options;
       Account.get(options.account_id, '', (err, response) => {
         if(response.success) {
           this.renderTitle(response.data.name);
-          Transaction.list(response.data, (err, response) => {
+          Transaction.list({'account_id': response.data.id}, (err, response) => {
             if(response.success) {
-              this.renderTransactions(response.data)
+              let transactions = document.querySelector('.content').querySelectorAll('.transaction');
+              if(transactions != null) {
+                for (let i = 0; i < transactions.length; i++) {
+                  transactions[i].remove();
+                }
+              };
+              this.renderTransactions(response.data);
             }
           })
         }
       });
-    this.lastOptions;
     }
   }
 
@@ -124,7 +137,14 @@ class TransactionsPage {
    * Устанавливает заголовок: «Название счёта»
    * */
   clear() {
-
+    let transactions = document.querySelector('.content').querySelectorAll('.transaction');
+    if(transactions != null) {
+      for (let i = 0; i < transactions.length; i++) {
+        transactions[i].remove();
+      }
+    };
+    
+    this.renderTitle('Название счета');
   }
 
   /**
@@ -184,9 +204,10 @@ class TransactionsPage {
    * item - объект с информацией о транзакции
    * */
   getTransactionHTML( item ) {
+    let type = item.type;
     let newDiv = document.createElement('dic');
     newDiv.classList.add('transaction')
-    newDiv.classList.add(`transaction_${item.type}`);
+    newDiv.classList.add(`transaction_${type.toLowerCase()}`);
     newDiv.classList.add('row');
     newDiv.innerHTML = `
     <div class="col-md-7 transaction__details">
@@ -195,7 +216,7 @@ class TransactionsPage {
       </div>
       <div class="transaction__info">
         <h4 class="transaction__title">${item.name}</h4>
-        <div class="transaction__date">${this.formatDate(item.date)}</div>
+        <div class="transaction__date">${this.formatDate(item.created_at)}</div>
       </div>
     </div>
     <div class="col-md-3">
@@ -220,8 +241,10 @@ class TransactionsPage {
   renderTransactions( data ) {
     const transactionPage = document.querySelector('.content');
 
-    for (let i = 0; i < data.length; i++) {
-      transactionPage.insertAdjacentElement('beforeEnd', this.getTransactionHTML(data[i])); 
+    if(data.length > 0) {
+      for (let i = 0; i < data.length; i++) {
+        transactionPage.insertAdjacentElement('beforeEnd', this.getTransactionHTML(data[i])); 
+      }
     }
   }
 }
