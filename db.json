@@ -235,31 +235,31 @@
     },
     {
       "id": "3f6j8g1j4kb2j4eo6",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g6agkb2j56ss",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8gkckb2j6jwu",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g4ggkb2jna70",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g3fokb2kaa2i",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g2zckb2kc3x8",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g23ckb2ke7vz",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g3q8kb2ld70r",
@@ -400,6 +400,21 @@
       "name": "Сбербанк",
       "user_id": "3f6j8g3pgkb2j1jgx",
       "id": "3f6j8g1xskb91561y"
+    },
+    {
+      "name": "Сбербанк",
+      "user_id": "3f6j8g2zckb2kc3x8",
+      "id": "3f6j8glckbbz8maf"
+    },
+    {
+      "name": "Наличные",
+      "user_id": "3f6j8g23ckb2ke7vz",
+      "id": "3f6j8gg0kbc09599"
+    },
+    {
+      "name": "Наличные",
+      "user_id": "3f6j8g3q8kb2ld70r",
+      "id": "3f6j8g1dwkbc0h9xi"
     }
   ],
   "transactions": [
@@ -729,6 +744,46 @@
       "sum": 1500,
       "account_id": "3f6j8g1xskb91561y",
       "created_at": "2020-06-10T07:27:08.639Z"
+    },
+    {
+      "id": "3f6j8g324kbbylt7a",
+      "type": "INCOME",
+      "name": "Зарплата",
+      "sum": 150000,
+      "account_id": "3f6j8g634kbbylbqd",
+      "created_at": "2020-06-12T08:39:00.117Z"
+    },
+    {
+      "id": "3f6j8g4vskbbz8egl",
+      "type": "INCOME",
+      "name": "Заначка",
+      "sum": 200000,
+      "account_id": "3f6j8g5aokbbz848q",
+      "created_at": "2020-06-12T08:56:34.100Z"
+    },
+    {
+      "id": "3f6j8g2qwkbbz9dke",
+      "type": "EXPENSE",
+      "name": "Одежда",
+      "sum": 10000,
+      "account_id": "3f6j8g5aokbbz848q",
+      "created_at": "2020-06-12T08:57:19.597Z"
+    },
+    {
+      "id": "3f6j8g4pokbbznjl7",
+      "type": "INCOME",
+      "name": "Зарплата",
+      "sum": 150000,
+      "account_id": "3f6j8glckbbz8maf",
+      "created_at": "2020-06-12T09:08:20.586Z"
+    },
+    {
+      "id": "3f6j8g5v4kbc34lds",
+      "type": "INCOME",
+      "name": "Зарплата",
+      "sum": 10000,
+      "account_id": "3f6j8g1dwkbc0h9xi",
+      "created_at": "2020-06-12T10:45:34.911Z"
     }
   ]
 }

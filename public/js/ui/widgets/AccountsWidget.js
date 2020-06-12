@@ -68,12 +68,14 @@ class AccountsWidget {
    * метода renderItem()
    * */
   update() {
-    Account.list(User.current(), (err, response) => {
+    if(User.current() != undefined) {
+      Account.list(User.current(), (err, response) => {
         if (response.success) {
           this.clear();
           this.renderItem(response.data);
         }
     })
+    }
   }
 
   /**

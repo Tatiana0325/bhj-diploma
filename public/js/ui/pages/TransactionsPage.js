@@ -35,7 +35,7 @@ class TransactionsPage {
    * TransactionsPage.removeAccount соответственно
    * */
   registerEvents() {
-    const removeAccount = document.querySelector('.remove-account');
+    const removeAccount = this.element.querySelector('.remove-account');
 
     removeAccount.addEventListener('click', (e) => {
       e.preventDefault();
@@ -46,15 +46,15 @@ class TransactionsPage {
     const sectionTransaction = document.querySelector('.content');
 
     sectionTransaction.addEventListener('click', () => {
-      const transaction = document.querySelectorAll('.transaction__remove');
+      const transaction = this.element.querySelectorAll('.transaction__remove');
     
-      for (let i = 0; i < transaction.length; i++) {
-        transaction[i].addEventListener('click', (e) => {
+      transaction.forEach(item => {
+        item.addEventListener('click', (e) => {
           e.preventDefault();
-          this.removeTransaction(transaction[i].getAttribute('data-id'));
-          transaction[i].closest('.transaction').remove();
+          this.removeTransaction(item.getAttribute('data-id'));
+          this.renderTransactions([]);
         })  
-      }
+      })  
     })  
   }
 
@@ -75,9 +75,6 @@ class TransactionsPage {
             App.update();
           }
         })
-
-        document.getElementById('income-accounts-list').querySelector(`option[value="${this.lastOptions.account_id}"]`).remove();
-        document.getElementById('expense-accounts-list').querySelector(`option[value="${this.lastOptions.account_id}"]`).remove(); 
       } else {
         return false;
       }
@@ -110,19 +107,13 @@ class TransactionsPage {
    * */
   render( options ) {
     if (options != undefined) {
-      this.clear();
       this.lastOptions = options;
       Account.get(options.account_id, '', (err, response) => {
         if(response.success) {
           this.renderTitle(response.data.name);
           Transaction.list({'account_id': response.data.id}, (err, response) => {
+            this.renderTransactions([]);
             if(response.success) {
-              let transactions = document.querySelector('.content').querySelectorAll('.transaction');
-              if(transactions != null) {
-                for (let i = 0; i < transactions.length; i++) {
-                  transactions[i].remove();
-                }
-              };
               this.renderTransactions(response.data);
             }
           })
@@ -137,13 +128,7 @@ class TransactionsPage {
    * Устанавливает заголовок: «Название счёта»
    * */
   clear() {
-    let transactions = document.querySelector('.content').querySelectorAll('.transaction');
-    if(transactions != null) {
-      for (let i = 0; i < transactions.length; i++) {
-        transactions[i].remove();
-      }
-    };
-    
+    this.renderTransactions([]);
     this.renderTitle('Название счета');
   }
 
@@ -151,7 +136,7 @@ class TransactionsPage {
    * Устанавливает заголовок в элемент .content-title
    * */
   renderTitle( name ) {
-    const accountTitle = document.querySelector('.content-title');
+    const accountTitle = this.element.querySelector('.content-title');
     accountTitle.textContent = name;
   }
 
@@ -205,7 +190,7 @@ class TransactionsPage {
    * */
   getTransactionHTML( item ) {
     let type = item.type;
-    let newDiv = document.createElement('dic');
+    let newDiv = document.createElement('div');
     newDiv.classList.add('transaction')
     newDiv.classList.add(`transaction_${type.toLowerCase()}`);
     newDiv.classList.add('row');
@@ -239,12 +224,14 @@ class TransactionsPage {
    * используя getTransactionHTML
    * */
   renderTransactions( data ) {
-    const transactionPage = document.querySelector('.content');
+    const transactionPage = this.element.querySelector('.content');
 
     if(data.length > 0) {
-      for (let i = 0; i < data.length; i++) {
-        transactionPage.insertAdjacentElement('beforeEnd', this.getTransactionHTML(data[i])); 
-      }
+      data.forEach(item => {
+        transactionPage.insertAdjacentElement('beforeEnd', this.getTransactionHTML(item));
+      });
+    } else {
+      transactionPage.innerHTML = '';
     }
   }
 }
