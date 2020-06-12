@@ -43,7 +43,7 @@ class TransactionsPage {
       this.clear();
     });
     
-    const sectionTransaction = document.querySelector('.content');
+    const sectionTransaction = this.element.querySelector('.content');
 
     sectionTransaction.addEventListener('click', () => {
       const transaction = this.element.querySelectorAll('.transaction__remove');

@@ -424,14 +424,14 @@
       "id": "3f6j8g1dwkbc0h9xi"
     },
     {
-      "name": "Наличные",
-      "user_id": "3f6j8g2m4kb2lih9f",
-      "id": "3f6j8g24skbc4t2wy"
-    },
-    {
       "name": "Сбербанк",
       "user_id": "3f6j8g2m4kb2lih9f",
       "id": "3f6j8gwwkbc4tn2c"
+    },
+    {
+      "name": "Наличные",
+      "user_id": "3f6j8g2m4kb2lih9f",
+      "id": "3f6j8g58okbc525a0"
     }
   ],
   "transactions": [
@@ -803,20 +803,20 @@
       "created_at": "2020-06-12T10:45:34.911Z"
     },
     {
-      "id": "3f6j8g5wkbc4tvfi",
+      "id": "3f6j8g424kbc52l68",
       "type": "INCOME",
       "name": "Зарплата",
-      "sum": 100000,
-      "account_id": "3f6j8g24skbc4t2wy",
-      "created_at": "2020-06-12T11:33:13.949Z"
+      "sum": 150000,
+      "account_id": "3f6j8g58okbc525a0",
+      "created_at": "2020-06-12T11:40:00.559Z"
     },
     {
-      "id": "3f6j8g5cckbc4u60x",
+      "id": "3f6j8g5ookbc55ad3",
       "type": "INCOME",
-      "name": "Вклад",
-      "sum": 500000,
+      "name": "Зарплата",
+      "sum": 200000,
       "account_id": "3f6j8gwwkbc4tn2c",
-      "created_at": "2020-06-12T11:33:27.680Z"
+      "created_at": "2020-06-12T11:42:06.518Z"
     }
   ]
 }
