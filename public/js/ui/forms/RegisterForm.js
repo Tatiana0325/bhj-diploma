@@ -11,17 +11,17 @@ class RegisterForm extends AsyncForm {
    * и закрывает окно, в котором находится форма
    * */
   onSubmit( options ) {
-    let inputRegister = document.getElementById('modal-register').querySelectorAll('.form-control');
+    let inputRegister = this.element.querySelectorAll('.form-control');
 
      User.register(options, (err, response) => {
         if (response.success) {
           User.setCurrent(response.user);
           App.setState( 'user-logged' );
+          inputRegister.forEach(item => {
+            item.value = '';
+          });
           App.getModal('register').close(); 
         }
     })
-    inputRegister[0].value = '';
-    inputRegister[1].value = '';
-    inputRegister[2].value = '';;
   }
 }

@@ -263,11 +263,11 @@
     },
     {
       "id": "3f6j8g3q8kb2ld70r",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g51okb2lg05j",
-      "isAuthorized": true
+      "isAuthorized": false
     },
     {
       "id": "3f6j8g2m4kb2lih9f",
@@ -363,6 +363,13 @@
       "password": "123",
       "id": "3f6j8g40ckb7lgd66",
       "isAuthorized": true
+    },
+    {
+      "name": "Татьяна",
+      "email": "13@15.ru",
+      "password": "123",
+      "id": "3f6j8g4askbc4sovn",
+      "isAuthorized": true
     }
   ],
   "accounts": [
@@ -415,6 +422,16 @@
       "name": "Наличные",
       "user_id": "3f6j8g3q8kb2ld70r",
       "id": "3f6j8g1dwkbc0h9xi"
+    },
+    {
+      "name": "Наличные",
+      "user_id": "3f6j8g2m4kb2lih9f",
+      "id": "3f6j8g24skbc4t2wy"
+    },
+    {
+      "name": "Сбербанк",
+      "user_id": "3f6j8g2m4kb2lih9f",
+      "id": "3f6j8gwwkbc4tn2c"
     }
   ],
   "transactions": [
@@ -784,6 +801,22 @@
       "sum": 10000,
       "account_id": "3f6j8g1dwkbc0h9xi",
       "created_at": "2020-06-12T10:45:34.911Z"
+    },
+    {
+      "id": "3f6j8g5wkbc4tvfi",
+      "type": "INCOME",
+      "name": "Зарплата",
+      "sum": 100000,
+      "account_id": "3f6j8g24skbc4t2wy",
+      "created_at": "2020-06-12T11:33:13.949Z"
+    },
+    {
+      "id": "3f6j8g5cckbc4u60x",
+      "type": "INCOME",
+      "name": "Вклад",
+      "sum": 500000,
+      "account_id": "3f6j8gwwkbc4tn2c",
+      "created_at": "2020-06-12T11:33:27.680Z"
     }
   ]
 }

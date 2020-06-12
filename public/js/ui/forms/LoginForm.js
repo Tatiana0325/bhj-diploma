@@ -12,9 +12,13 @@ class LoginForm extends AsyncForm {
    * */
   onSubmit( options ) {
     User.login(options, (err, response) => {
+      let loginForm = this.element.querySelectorAll('.form-control');
       if (response.success) {
         User.setCurrent(response.user);
         App.setState( 'user-logged' );
+        loginForm.forEach(item => {
+          item.value = '';
+        })
         App.getModal('login').close();  
       }
     }) 

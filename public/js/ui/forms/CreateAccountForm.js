@@ -11,7 +11,7 @@ class CreateAccountForm extends AsyncForm {
    * и сбрасывает форму
    * */
   onSubmit( options ) {
-    let inputForm = document.getElementById('modal-new-account').querySelector('.form-control');
+    let inputForm = this.element.querySelector('.form-control');
     Account.create(options, (err, response) => {
       if(response.success){
         App.getModal('createAccount').close();

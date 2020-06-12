@@ -41,18 +41,15 @@ class CreateTransactionForm extends AsyncForm {
    * в котором находится форма
    * */
   onSubmit( options ) {
+    let transactionForm = this.element.querySelectorAll('.form-control');
     Transaction.create(options, (err, response) => {
       if(response.success) {
         App.update();
+        transactionForm.forEach(item => {
+          item.value = '';
+        })
         App.getModal('newIncome').close();
         App.getModal('newExpense').close();
-        
-        let inputIncome = document.getElementById('modal-new-income').querySelectorAll('.form-control');
-        let inputExpense = document.getElementById('modal-new-expense').querySelectorAll('.form-control');
-        inputIncome[0].value = ''; 
-        inputIncome[1].value = '';  
-        inputExpense[0].value = ''; 
-        inputExpense[1].value = ''; 
       }
     })
   }
